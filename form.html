@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Form Layout</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        .h1{
+    text-align: center;
+}
+.corner-box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            border: 2px solid blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: fixed; /*Stays in place */
+        }
+
+        /* Positioning each box */
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+}
+
+.form-box {
+    width: 200px;
+    height: auto;
+    background: #b9dfe8;
+    margin: 20px;
+    padding: 25px;
+    border: 2px solid blue;
+    border-radius: 12px;
+}
+
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.inline {
+    margin-top: 5px;
+}
+
+.inline input {
+    margin-right: 5px;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: darkblue;
+}
+
+.y{
+    background-color: aqua;
+    border-radius: 5px;
+}
+
+.flex-box{
+    display:flex;
+}
+
+#dataTable{
+    border: 2px solid darkblue ;
+    border-radius: 10px;
+     width: 200px;
+    height: 90%;
+    background: #b9dfe8;
+    margin: 15px;
+    /* padding: 25px;  */
+    border: 2px solid blue;
+    border-radius: 12px;
+}
+header{
+    background-color: lavender;
+    border: 2px solid darkblue ;
+}
+p{
+    font-size:50px;
+    text-align: center;
+    /* justify-content: center; */
+}
+
+footer{
+   background-color: lavender;
+   border: 2px solid darkblue ;
+}
+
+aside{
+    border: 2px solid darkblue ;
+    width: 25%;
+
+}
+main{
+    border: 2px solid darkblue ;
+    width:50%;
+}
+#right{
+    float: right;
+}
+
+#layout{
+    display: flex;
+    gap: 10px;
+
+}
+     </style>
+</head>
+
+<body>
+  <header >
+    <p>Header</p>
+  </header>
+<div id="layout">
+<aside id="left">
+  <p>this is left aside</p>
+</aside>
+<main>
+  
+
+    <h1 class="h1">Box</h1>
+
+    <!-- Corner Boxes -->
+    <div class="corner-box top-left">Top Left</div>
+    <div class="corner-box top-right">Top Right</div>
+    <div class="corner-box bottom-left">Bottom Left</div>
+    <div class="corner-box bottom-right">Bottom Right</div>
+
+    <!-- Main Container -->
+    <div class="flex-box">
+
+        <!-- Form Box -->
+        <div class="form-box">
+            <h2>Form</h2>
+
+            <label>Name</label>
+            <input type="text" class="y" placeholder="Enter name">
+
+            <label>Roll No</label>
+            <input type="number" class="y" placeholder="Enter roll no">
+
+            <label>Age</label>
+            <select class="y">
+                <option>Select age</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+            </select>
+
+            <label>Gender</label>
+            <div class="inline">
+                <input type="radio" name="gender"> Male
+                <input type="radio" name="gender"> Female
+            </div>
+
+            <label>Skills</label>
+            <div class="inline">
+                <input type="checkbox"> HTML
+                <input type="checkbox"> CSS
+                <input type="checkbox"> JavaScript
+            </div>
+
+            <label>Course</label>
+            <select class="y">
+                <option>Select course</option>
+                <option>CSE</option>
+                <option>IT</option>
+                <option>AI</option>
+                <option>DS</option>
+            </select>
+
+            <button>Submit</button>
+        </div>s
+                                        
+    
+
+    <!-- Table -->
+    <div>
+      <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Skills</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- data will come here -->
+        </tbody>
+      </table>
+    </div>
+</div>
+</main>
+<aside id="right">
+  <p>this is right aside</p>
+</aside>
+</div>
+
+ <footer>
+    <p>Footer</p>
+  </footer>
+</body>
+</html>

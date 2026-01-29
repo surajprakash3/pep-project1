@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        .body{
+    background-color:gray;
+    text-align: center;
+    
+    
+}
+
+.h2{
+    margin-top: 100px;
+    background-color: aliceblue;
+    border-radius: 500px;
+    margin-bottom: 50px;
+    width: 150px;
+    height: 50px;
+    margin-left: 80px;
+}
+.container{
+    
+    text-align: center;
+    background-color: aqua;
+    height: 300px;
+    width: 300px;
+    margin-left: 200px;
+    border-radius: 1000px;
+}
+     </style>
+  </head>
+  <body class="body">
+    <div class="container">
+        <h2 class="h2">stopwatch</h2>
+         <div class="watch">
+            <button onclick="start()">start</button>
+            <button onclick="stop()">stop</button>
+            <button onclick="reset()">reset</button>
+            <div id="a">00:00</div>
+         </div>
+    </div>
+    <script>
+          let time=0;
+  let count;
+function start(){
+  
+    count = setInterval(()=>{
+        time++;
+        document.getElementById('a').innerHTML=time;
+
+    },1000)
+}
+function stop(){
+    clearInterval(count);
+}
+function reset(){
+    clearInterval(count);
+    time=0;
+    
+    document.getElementById('a').innerHTML=time;
+
+}
+    </script>
+  </body>
+
+</html>
+
+

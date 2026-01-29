@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link charset="utf-8">
+    <title>title</title>
+    <style>
+        .bod{
+    background-color: gray;
+}
+.h1{
+    color:aqua;
+    text-align: center;
+}
+.divs {
+    max-width: 400px;
+    margin: auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    gap: 5px;
+}
+.bjp{
+    color: rgb(28, 14, 4);
+    
+}
+.rjd{
+    color: rgb(28, 14, 4);
+    
+}
+.ntp{
+    color: rgb(28, 14, 4);
+    
+}
+    </style>
+     <!-- <link rel="stylesheet" href="style3.css"/> -->
+</head>
+
+  <body class="bod">
+    <h1 class="h1">voting machine</h1>
+    <div class="divs">
+      <div class="bjp">
+        <button onclick="adddata('bjp')">bjp</button>
+        <span id="bjp">0</span>
+      </div>
+        
+       <div class="rjd">
+         <button onclick="adddata('rjd')">rjd</button>
+        <span id="rjd">0</span>
+       </div>
+        <div class="npt">
+          <button onclick ="adddata('ntp')">ntp</button>
+        <span id="ntp">0</span>
+        </div>
+    </div>
+    <!-- <table>
+        <thead>
+            <tr>
+                <th>bjp</th>
+                <th>rjd</th>
+                <th>ntp</th>
+            </tr>
+            
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table> -->
+    <script>
+        let votes = {
+    bjp: 0,
+    rjd: 0,
+    ntp: 0
+};
+
+function adddata(party) {
+    votes[party]++;
+    document.getElementById(party).innerText = votes[party];
+}
+
+    </script>
+  </body>
+</html>
+
+
+<!-- {/* <button onclick="voteBJP()">Vote BJP</button>
+<button onclick="voteRJD()">Vote RJD</button>
+<button onclick="voteNTP()">Vote NTP</button>
+
+<p>BJP Votes: <span id="bjp">0</span></p>
+<p>RJD Votes: <span id="rjd">0</span></p>
+<p>NTP Votes: <span id="ntp">0</span></p> */} -->

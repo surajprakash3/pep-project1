@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        .body{
+    background-color: gray;
+}
+.h1{
+    color: aqua;
+    text-align: center;
+}
+     </style>
+  </head>
+  <body class="body">
+    <h1 class="h1">detail</h1>
+    <div>
+        <lable>
+            Weight
+        </lable>
+        <input type="num" id="weight" placeholder="weight" />
+        <lable>
+            Height
+        </lable>
+        <input type="num" id="height" placeholder="height"/>
+        <button ondblclick="adddata()">
+            adddata
+        </button>
+    </div>
+<table id="dataTable">
+    <thead>
+        <tr>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>bmi</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will appear here -->
+    </tbody>
+</table>
+
+<script >
+    function adddata(){
+    let weight= document.getElementById("weight").value;
+    let height=document.getElementById("height").value;
+    if(weight==="" || height===""){
+        alert("please enter weight ane height");
+        return;
+    }
+    let heightMeter=height/100;
+    let bmi=(weight/(heightMeter*heightMeter)).toFixed(2);
+
+    let tableBody=document
+    .getElementById("dataTable")
+    .getElementsByTagName("tbody")[0];
+
+    let newRow = tableBody.insertRow();
+
+    newRow.insertCell(0).innerText=weight;
+    newRow.insertCell(1).innerText=height;
+    newRow.insertCell(2).innerText=bmi;
+
+    document.getElementById("weight").value="";
+    document.getElementById("height").value="";}
+</script>
+  </body>
+</html>

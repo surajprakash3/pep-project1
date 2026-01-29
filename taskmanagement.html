@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Task Taker</title>
+    <!-- <link rel="stylesheet" href="style.css">
+      -->
+    <style>
+        .body{
+    background-color: blanchedalmond;
+    text-align: center;
+}
+.container{
+    background-color:rgb(227, 176, 176);
+    text-align: center;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid black;
+      padding: 8px;
+          border-radius: 50px;
+      
+
+
+}
+.h3{
+    background-color: aqua;
+    width: 150px;
+    text-align: center;
+    margin-left: 270px;
+    border-radius: 50px;
+}
+
+table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+                border-radius: 50px;
+        }
+        th, td {
+            border: 1px;
+            padding: 8px;
+            text-align: center;
+                border-radius: 50px;
+        }
+        th {
+            background-color: lightgray;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+                border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body class="body">
+
+<h2 class="h2">Task Tacker</h2>
+
+<div class="container">
+    <label>Date</label>
+    <input type="date" id="date">
+
+    <label>Task</label>
+    <input type="text" id="task" placeholder="Your Task">
+
+    <label>Level</label>
+    <select id="choose">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+    </select>
+
+    <button onclick="addtask()">ADD</button>
+</div>
+
+<h3 class="h3">Active Tasks</h3>
+<table >
+    <thead>
+        <tr class="tr">
+            <th>Date</th>
+            <th>Task</th>
+            <th>Level</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="atask">
+    
+    </tbody>
+</table>
+
+
+<h3 class="h3">Completed Tasks</h3>
+<table>
+    <thead>
+        <tr class="tr">
+            <th>Date</th>
+            <th>Task</th>
+            <th>Level</th>
+        </tr>
+    </thead>
+    <tbody id="adone">
+       
+    </tbody>
+</table>
+
+<script>
+    function addtask() {
+    let date = document.getElementById('date').value;
+    let task = document.getElementById('task').value;
+    let level = document.getElementById('choose').value;
+
+    if (date === "" || task === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let tr = document.createElement("tr");
+
+    tr.innerHTML = `
+        <td>${date}</td>
+        <td>${task}</td>
+        <td>${level}</td>
+        <td><button onclick="taskdone(this)">Done</button></td>
+    `;
+
+  
+    document.getElementById("atask").appendChild(tr);
+
+    document.getElementById("task").value = "";
+}
+
+function taskdone(btn) {
+
+    let row = btn.parentElement.parentElement;
+
+   
+    row.removeChild(row.lastElementChild);
+
+   
+    document.getElementById("adone").appendChild(row);
+}
+
+</script>
+</body>
+</div>
