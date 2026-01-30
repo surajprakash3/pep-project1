@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Win or Lose Game</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            text-align: center;
+            background-color: grey;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 8px;
+            width: 130px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .boxes {
+            display: grid;
+            grid-template-columns: repeat(2, 100px);
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+            
+        }
+
+        .boxes div {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            border: 2px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: #e9edff;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: rgb(195, 179, 179);
+        }
+
+        .boxes div:hover {
+            background-color: #cdd8ff;
+            transform: scale(1.05);
+        }
+
+        #result {
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🎯 Win or Lose Game</h2>
+
+    <label>Enter a number (1–4)</label><br>
+    <input type="number" id="num" min="1" max="4" oninput="search()">
+
+    <div class="boxes">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+        <div id="box4"></div>
+    </div>
+
+    <div>
+        <label id="result">Result</label>
+    </div>
+</div>
+
+<script>
+    function search() {
+        let number = document.getElementById("num").value;
+
+        if (!number || number < 1 || number > 4) {
+            document.getElementById("result").innerText = "Enter number 1 to 4";
+            return;
+        }
+
+        document.getElementById("result").innerText = "Checking...";
+
+        setTimeout(() => {
+            let box1 = Math.floor(Math.random() * 4) + 1;
+            let box2 = Math.floor(Math.random() * 4) + 1;
+            let box3 = Math.floor(Math.random() * 4) + 1;
+            let box4 = Math.floor(Math.random() * 4) + 1;
+
+            document.getElementById("box1").innerText = box1;
+            document.getElementById("box2").innerText = box2;
+            document.getElementById("box3").innerText = box3;
+            document.getElementById("box4").innerText = box4;
+
+            if (
+                Number(number) === box1 ||
+                Number(number) === box2 ||
+                Number(number) === box3 ||
+                Number(number) === box4
+            ) {
+                document.getElementById("result").innerText = "🎉 Winner!";
+                document.getElementById("result").style.color = "green";
+            } else {
+                document.getElementById("result").innerText = "❌ Try Again!";
+                document.getElementById("result").style.color = "red";
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
